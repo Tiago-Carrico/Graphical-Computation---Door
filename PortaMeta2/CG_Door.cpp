@@ -84,7 +84,7 @@ static GLfloat cores[] = {
 0.0, 1.0, 1.0,
 1.0, 1.0, 0.0 };
 
-//Definição funçoes
+//DefiniÃ§Ã£o funÃ§oes
 float boundaries(GLfloat number, float change);
 
 
@@ -102,10 +102,10 @@ void setupLuzes() {
 	GLfloat corBranco[] = {1.0, 1.0, 1.0, 1};
 	GLfloat corRosa[] = { 0.5, 0.0, 0.5, 1 };
 
-	GLfloat Foco_direccao[] = { 0.0, -15.0, 3.0, 1 };	//funciona em base da posição inicial, ou seja, se estiver em 10,20,20 e aqui estiver 10,0,0 vai apontar para 20,20,20
+	GLfloat Foco_direccao[] = { 0.0, -15.0, 3.0, 1 };	//funciona em base da posiÃ§Ã£o inicial, ou seja, se estiver em 10,20,20 e aqui estiver 10,0,0 vai apontar para 20,20,20
 	//GLfloat Foco_direccao2[] = { 0.0, -10.0, 6.0, 1 };
-	GLfloat Foco1_cor[] = { Lightred, Lightgreen, Lightblue, 1 };	//……… Cor da luz 1
-	GLfloat Foco2_cor[] = { 0.5, 0.5,  0.5, 1.0 };	//……… Cor da luz 2
+	GLfloat Foco1_cor[] = { Lightred, Lightgreen, Lightblue, 1 };	//â€¦â€¦â€¦ Cor da luz 1
+	GLfloat Foco2_cor[] = { 0.5, 0.5,  0.5, 1.0 };	//â€¦â€¦â€¦ Cor da luz 2
 	GLfloat Foco2_cor2[] = { 0.7, 0.7, 0.7, 1.0 };
 	GLfloat Foco1_cor2[] = { boundaries(Foco1_cor[0], -0.2), boundaries(Foco1_cor[1], -0.2), boundaries(Foco1_cor[2], -0.2), 1.0};
 	GLfloat Cor_ambiente[] = { 0.7, 0.7, 0.7, 1 };	//cor ambiente
@@ -120,19 +120,19 @@ void setupLuzes() {
 
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, Cor_ambiente);
 
-	//……………………………………………………………………………………………………………………………Foco Esquerda
-	glLightfv(GL_LIGHT0, GL_POSITION, Pos1);					//posição da fonte de luz
+	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Foco Esquerda
+	glLightfv(GL_LIGHT0, GL_POSITION, Pos1);					//posiÃ§Ã£o da fonte de luz
 	glLightfv(GL_LIGHT1, GL_AMBIENT, Foco1_cor);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, Foco1_cor2);				//cor da luz
 	glLightfv(GL_LIGHT1, GL_SPECULAR, corBranco);
-	glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, Foco_ak1);		//atenuação da luz
-	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, Foco_al1);		//atenuação da luz
-	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, Foco_aq1);		//atenuação da luz
+	glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, Foco_ak1);		//atenuaÃ§Ã£o da luz
+	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, Foco_al1);		//atenuaÃ§Ã£o da luz
+	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, Foco_aq1);		//atenuaÃ§Ã£o da luz
 	//glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, aberturaFoco2);			//angulo da fonte de luz (do feixe)
-	//glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, Foco_direccao2);		//direção para que a luz aponta
-	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, Foco_Expon1);			//força do foco da luz
+	//glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, Foco_direccao2);		//direÃ§Ã£o para que a luz aponta
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, Foco_Expon1);			//forÃ§a do foco da luz
 
-	//……………………………………………………………………………………………………………………………Foco Direita
+	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Foco Direita
 	glLightfv(GL_LIGHT1, GL_POSITION, Pos2);
 	glLightfv(GL_LIGHT1, GL_AMBIENT, WhiteCustom);		
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, WhiteCustom2);
@@ -150,12 +150,12 @@ void setupLuzes() {
 //=========================================================================== INIT
 void initialize(void)
 {
-	glClearColor(BLACK);		//………………………………………………………………………………Apagar
-	glEnable(GL_DEPTH_TEST);	//………………………………………………………………………………Profundidade
-	glShadeModel(GL_SMOOTH);	//………………………………………………………………………………Interpolacao de cores	
+	glClearColor(BLACK);		//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Apagar
+	glEnable(GL_DEPTH_TEST);	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Profundidade
+	glShadeModel(GL_SMOOTH);	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Interpolacao de cores	
 
 
-	//Ligar o blend, para que transparência seja possivel
+	//Ligar o blend, para que transparÃªncia seja possivel
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 
@@ -168,7 +168,7 @@ void initialize(void)
 
 	//Setup da textura da madeira
 	RgbImage imag;
-	//glEnable(GL_TEXTURE_2D);		//foi movida para a função drawDoor para não afetar as cores daquilo que não fosse texturado
+	//glEnable(GL_TEXTURE_2D);		//foi movida para a funÃ§Ã£o drawDoor para nÃ£o afetar as cores daquilo que nÃ£o fosse texturado
 	GLuint texture[5];
 	glGenTextures(1, &texture[0]);
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
@@ -187,10 +187,10 @@ void initialize(void)
 
 
 
-	glEnable(GL_CULL_FACE);		//………………………………………………………………………………Faces visiveis
-	glCullFace(GL_BACK);		//………………………………………………………………………………Mostrar so as da frente
+	glEnable(GL_CULL_FACE);		//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Faces visiveis
+	glCullFace(GL_BACK);		//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Mostrar so as da frente
 
-	glVertexPointer(3, GL_FLOAT, 0, vertices); //………………………………………Vertex arrays
+	glVertexPointer(3, GL_FLOAT, 0, vertices); //â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Vertex arrays
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glNormalPointer(GL_FLOAT, 0, normais);
 	glEnableClientState(GL_NORMAL_ARRAY);
@@ -517,7 +517,7 @@ void drawParCMesh2(GLfloat xSize, GLfloat height, GLfloat zSize, GLfloat xStart,
 }
 
 
-//TODO tirar argumentos desnecessarios e mudar os valores edntro da função para serem usados argumentos
+//TODO tirar argumentos desnecessarios e mudar os valores edntro da funÃ§Ã£o para serem usados argumentos
 void drawParCMesh2Test(GLfloat xSize, GLfloat height, GLfloat zSize, GLfloat xStart, GLfloat yStart, GLfloat zStart, GLfloat alpha) {
 
 	//float cor[] = { r, g, b, alpha };
@@ -1058,7 +1058,7 @@ void drawDoor() {
 			glPopMatrix();
 		glPopMatrix();
 
-		//TODO hinges are not completely fine tuned to position, check later ----------> a porta roda em função da porta em si, e nao das dobradiças como devia -> xStart= -0.1 before
+		//TODO hinges are not completely fine tuned to position, check later ----------> a porta roda em funÃ§Ã£o da porta em si, e nao das dobradiÃ§as como devia -> xStart= -0.1 before
 		//door hinges
 		drawParCMesh(0.1, 0.3, 0.5, 0, 15, 0, 0.3, 0.3, 0.3, 1.0f);		//movable hinge
 		drawParCMesh(0.1, 0.3, 0.5, 0, 30, 0, 0.3, 0.3, 0.3, 1.0f);		//movable hinge
@@ -1084,7 +1084,7 @@ void display(void) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(0, 30, 0, 0, 0, 0, 0, 0, -1);
-	//…………………………………………………………………………………………………………………………………………………………Objectos
+	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Objectos
 	drawEixos();
 	drawDoor();
 	drawObservador_Local();
@@ -1102,12 +1102,12 @@ void display(void) {
 		glOrtho(-20, 20, -20, 20, -100, 100);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(obsP[0], obsP[1], obsP[2], obsT[0], obsT[1], obsT[2], 0, 1, 0);		//mudei o 1 para viewHeight para poder mudar o angulo y com que olha para a porta, modificação do angulo esta nas teclas ascii(1 = cima/2 = baixo)
+	gluLookAt(obsP[0], obsP[1], obsP[2], obsT[0], obsT[1], obsT[2], 0, 1, 0);		//mudei o 1 para viewHeight para poder mudar o angulo y com que olha para a porta, modificaÃ§Ã£o do angulo esta nas teclas ascii(1 = cima/2 = baixo)
 
-	//…………………………………………………………………………………………………………………………………………………………Objectos
+	//â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦Objectos
 	drawEixos();
 	drawDoor();
-	setupLuzes();			//ERA AQUI QUE ISTO DEVIA ESTAR PARA A LUZ NAO ANDAR DE UM LADO PARA O OUTRO E NAO NO DRAWSCENE, POR QUE È QUE RAIO È QUE ESTAVA LÁ!!!!!!!!
+	setupLuzes();			//ERA AQUI QUE ISTO DEVIA ESTAR PARA A LUZ NAO ANDAR DE UM LADO PARA O OUTRO E NAO NO DRAWSCENE, POR QUE Ãˆ QUE RAIO Ãˆ QUE ESTAVA LÃ!!!!!!!!
 	drawScene();
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Actualizacao
@@ -1135,7 +1135,7 @@ void keyboard(unsigned char key, int x, int y) {
 
 
 		//As minahs teclas
-		   //Depois do quao mal isto funciona, mas mesmo assim funcionando, só Deus me pode julgar
+		   //Depois do quao mal isto funciona, mas mesmo assim funcionando, sÃ³ Deus me pode julgar
 
 		   //controlos eixo Y
 	case '1':
@@ -1360,18 +1360,18 @@ int main(int argc, char** argv) {
 
 
 /*GUIA DOS CONTROLOS
-* SETAS: rodar à volta da porta
-* W/S: Avançar/Recuar no eixo X
+* SETAS: rodar Ã  volta da porta
+* W/S: AvanÃ§ar/Recuar no eixo X
 * A/D: Olhar no sentido do X positivo/negativo
 * Q/E: Subir/Descer o observador
 * 1/2: olhar para um ponto mais alto/baixo
-* I/K: Avançar/Recuar no eixo Z
-* J/L: Olhar para um ponto mais avançado/menos avançado no eixo Z
+* I/K: AvanÃ§ar/Recuar no eixo Z
+* J/L: Olhar para um ponto mais avanÃ§ado/menos avanÃ§ado no eixo Z
 * C/V: Abrir/Fechar a porta
 * B/N: Abrir/Fechar a portinhola
-* T/Y: Rodar positivamente/negativamente a maçaneta
-* 3/4/5: Subir os valores RGB (respetivamente) da luz pontual do lado de trás da porta
-* 6/7/8: Descer os valores RGB (respetivamente) da luz pontual do lado de trás da porta
+* T/Y: Rodar positivamente/negativamente a maÃ§aneta
+* 3/4/5: Subir os valores RGB (respetivamente) da luz pontual do lado de trÃ¡s da porta
+* 6/7/8: Descer os valores RGB (respetivamente) da luz pontual do lado de trÃ¡s da porta
 * 9/0: Aumentar/Diminuir a intensidade da luz focal na parte da frente da porta
 * R/U: Aumentar/Diminuir a componente especular da porta
 */
