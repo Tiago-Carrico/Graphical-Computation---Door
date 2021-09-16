@@ -1,4 +1,4 @@
 # Graphical-Computation---Door
 
-##Description
+## Description
 Demonstration of basic graphical computation concepts such as models, lighting, textures and animations using OpenGL.
